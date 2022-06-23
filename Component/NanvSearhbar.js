@@ -1,12 +1,24 @@
 import React from "react";
-
-const NanvSearhbar =()=>{
+import NavLink from "./NavLink";
+const NavSearchbar =()=>{
     return(
-        <div className=header>
-            <h1>Welcome To TripHunt</h1>
-            <Logo/>
-
+        <div>
+            <NavLink href="" value="Flights"/>
+            <NavLink href="" value="Hotels"/>
+            <NavLink href="" value="CarRental"/>
+            <NavLink href="" value="Plans"/>
+            <NavLink href="" value="Cruse"/>
+            <NavLink href="" value="Discover Nearby"/>
+            <form>
+                <label>
+                    Name:
+                    <input type="text" placeholder="Search for a destination" name="search" />
+                </label>
+                <input type="submit" value="Search" />
+            </form>
         </div>
+
+
     )
 }
-export default Header;
+export default NavSearchbar;
