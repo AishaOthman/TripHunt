@@ -16,6 +16,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
+import {Navigate} from "react-router-dom";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -96,6 +97,10 @@ const sendPasswordReset = async (email) => {
 const logout = () => {
   signOut(auth);
 };
+// EditDestinations function
+const EditDestinations=()=>{
+  Navigate("/editDestinations")
+}
 export {
   auth,
   db,
@@ -104,4 +109,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  EditDestinations,
 };

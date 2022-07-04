@@ -15,7 +15,7 @@ function Login() {
             return;
         }
         if (user){
-            avigate("/dashboard");
+            Navigate("/dashboard");
         }
 
     }, [user, loading]);
