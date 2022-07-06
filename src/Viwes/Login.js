@@ -1,13 +1,15 @@
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
-import {Link, useNavigate} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {auth, signInWithGoogle} from "../Serves/firebase";
-import {signInWithEmailAndPassword} from "firebase/auth";
+import {auth, logInWithEmailAndPassword, signInWithGoogle} from "../Serves/firebase";
+
+
+
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
         if (loading) {
@@ -15,7 +17,7 @@ function Login() {
             return;
         }
         if (user){
-            Navigate("/dashboard");
+            navigate("/dashboard");
         }
 
     }, [user, loading]);
@@ -38,7 +40,7 @@ function Login() {
                 />
                 <button
                     className="login__btn"
-                    onClick={() => signInWithEmailAndPassword(email, password)}
+                    onClick={() => logInWithEmailAndPassword(email, password)}
                 >
                     Login
                 </button>
